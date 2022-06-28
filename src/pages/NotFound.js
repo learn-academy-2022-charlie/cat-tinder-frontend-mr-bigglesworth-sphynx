@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import './NotFound.css'  
 
 class NotFound extends Component {
     render() {
       return (
-        <div>This is the NotFound</div>
+        <div className="NotFound">This is the NotFound</div>
       )
     }
   }

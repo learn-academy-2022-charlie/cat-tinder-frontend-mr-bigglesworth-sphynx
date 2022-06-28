@@ -1,4 +1,4 @@
-let cats = [
+let dinos = [
     {
       id: 1,
       name: "Jorge",
@@ -10,7 +10,7 @@ let cats = [
       id: 2,
       name: "Smokey",
       age: 22,
-      enjoys: "late night pizza roles and bagel bites",
+      enjoys: "late night pizza rolls and bagel bites",
       image: "https://images.unsplash.com/photo-1609397755983-38190d327177?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     },
     {
@@ -21,4 +21,4 @@ let cats = [
       image: "https://cdn.pixabay.com/photo/2017/09/10/13/06/pterosaur-2735500_960_720.jpg"
     }
   ]
-  export default cats
+  export default dinos
