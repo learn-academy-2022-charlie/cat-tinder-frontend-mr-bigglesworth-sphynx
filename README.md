@@ -1,4 +1,71 @@
-# Getting Started with Create React App
+# Welcome to Dino Tinder. The world's most popular Dinosaur dating app. Brought to you by Collin and Jorge. We are not on the Founders, we are also clients.
+
+# Pull Requests
+@Sarah @Charlean Baxter and @Austin
+ We just wrapped up our Cat Tinder Sphynx Card and User Stories. Can you please look over our PR?
+Github: https://github.com/learn-academy-2022-charlie/cat-tinder-frontend-mr-bigglesworth-sphynx
+Trello: https://trello.com/b/57eYcQWj/cat-tinder-sphynx
+
+# Initial switching of drivers
+- $ mkdir <directory to store project on local machine>
+- $ cd into <directory to store project on local machine>
+- $ git clone <code of the repo that you created with your cat-tinder group>
+- $ cd into repo
+- Follow steps according to working on the same branch or a new branch
+# If working on the same branch
+- $ git fetch origin <branch that other driver created>
+- $ git checkout <branch that other driver created>
+- $ git pull origin <branch that other driver created>
+- $ yarn
+# If working on a new branch
+- $ git checkout main
+- $ git pull origin main
+- $ git checkout -b <new branch according to trello card>
+- $ yarn start
+
+# Steps completed
+trello: https://trello.com/b/57eYcQWj/cat-tinder-sphynx
+- Created React App cat-tinder-frontend-mr-bigglesworth-sphynx
+- Created Directories
+    - Components
+        - Footer.js
+        - Header.js
+    - Pages
+        - Home.js
+        - DinoIndex.js
+        - DinoShow.js
+        - DinoNew.js
+        - DinoEdit.js
+        - NotFound.js
+    - Assets
+        - PENDING
+- Installs
+    - Reactstrap
+    - React router
+        $ yarn add bootstrap
+        $ yarn add reactstrap
+        Add to src/index.js: import 'bootstrap/dist/css/bootstrap.min.css'
+- Routes
+    - Created routes in App.js for all components
+
+- Create Mock Dinos
+    - Create f ile in the src directory
+    - Add an array of dino objects
+    - Import the dino object to App.js
+
+# CONTINUE BELOW
+- Add UI Features
+    - Style the Header component
+    - Style NotFound page
+    - Style Footer component 
+
+
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
