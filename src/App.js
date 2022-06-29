@@ -15,6 +15,7 @@ import {
 } from 'react-router-dom'
 import mockDinos from './mockDinos.js'
 
+
 class App extends Component{
   constructor(props){
     super(props)
@@ -25,10 +26,9 @@ class App extends Component{
   render() {
     console.log(this.state.dinos)
     return (
+      <>
       <Router>
         <Header/>
-        <h1>Welcome to Dino Tinder</h1>
-        <h2>The world's most popular Dinosaur dating App</h2>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/dinoindex" component={DinoIndex} />
@@ -39,7 +39,7 @@ class App extends Component{
       </Switch>
       <Footer/>
     </Router>
-      
+    </>
     )
   }
 }

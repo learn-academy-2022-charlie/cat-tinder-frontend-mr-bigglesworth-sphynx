@@ -1,5 +1,6 @@
-.Header{
+header{
     color: green;
     display: flex;
     justify-content: center;
+    background-color: aquamarine;
 }
