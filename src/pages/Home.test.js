@@ -28,8 +28,6 @@ describe("When Home.js renders to the user", ()=>{
   it("it displays a image", ()=>{
     const appImageRender = appRender.find("img")
     expect(appImageRender.length).toEqual(1)
-    // const displayedImage = document.querySelector("img");
-    // expect(displayedImage.src).toContain("dinologo");
   })
  
 })

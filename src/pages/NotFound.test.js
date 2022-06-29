@@ -15,14 +15,19 @@ import NotFound from './NotFound.js'
 Enzyme.configure({ adapter: new Adapter() })
 
 // describe takes two arguments 
-describe("When NotFound.js renders to the user", ()=>{
+describe("When Home.js renders to the user", ()=>{
   let appRender
   beforeEach(()=>{
     appRender= shallow(<NotFound/>)
   })
   it("it displays a header", ()=>{
-    // const appRender = shallow(<App/>)
+  
     const appHeaderRender = appRender.find("h3")
     expect(appHeaderRender.length).toEqual(1)
+  })
+  it("it displays a text", ()=>{
+    
+    const appHeaderRender = appRender.find("h3")
+    expect(appHeaderRender.text()).toEqual("This is the NotFound")
   })
 })
