@@ -26,20 +26,25 @@ class App extends Component{
   render() {
     console.log(this.state.dinos)
     return (
-      <>
+     
       <Router>
         <Header/>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/dinoindex" component={DinoIndex} />
-        <Route path="/dinoshow" component={DinoShow} />
+        <Route path="/dinoindex" render={(props)=><DinoIndex dinos={this.state.dinos}/>}/>
+        <Route path="/dinoshow/:id" render= {(props)=>{
+            //create two variables to identify and pass a cat into the show route
+            let id = props.match.params.id
+            let dino = this.state.dinos.find((dinoObject)=> dinoObject.id == id)
+            return <DinoShow dino={dino}/>
+          }} />
         <Route path="/dinonew" component={DinoNew} />
         <Route path="/dinoedit" component={DinoEdit} />
         <Route component={NotFound}/>
       </Switch>
       <Footer/>
     </Router>
-    </>
+   
     )
   }
 }
