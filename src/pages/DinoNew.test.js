@@ -8,40 +8,45 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 // Imports in the component we are going to be testing.
-import CatNew from './CatNew.js'
+import DinoNew from './DinoNew.js'
 
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 Enzyme.configure({ adapter: new Adapter() })
 
-describe("When CatNew Renders", () => {
+describe("When DinoNew Renders", () => {
 
-  let catNewRender
+  let dinoNewRender
   beforeEach(() => {
-    catNewRender = shallow(<CatNew />)
+    dinoNewRender = shallow(<DinoNew />)
   })
   it("displays a heading", ()=>{
-    const catNewHeading = catNewRender.find("h3")
-    expect(catNewHeading.length).toEqual(1)
-    expect(catNewHeading.text()).toEqual("Tell us about that fur!")
+    const dinoNewHeading = dinoNewRender.find("h3")
+    expect(dinoNewHeading.length).toEqual(1)
+    // method .text() checks that the heading text matches in the render
+    expect(dinoNewHeading.text()).toEqual("Tell Us About Your Prehistoric Self!")
   })
   it("displays a form", ()=>{
-    const catNewForm = catNewRender.find("Form")
-    expect(catNewForm.length).toEqual(1)
+    const dinoNewForm = dinoNewRender.find("Form")
+    expect(dinoNewForm.length).toEqual(1)
   })
-  it("displays an input for cat name", ()=>{
-    const catNewNameInput = catNewRender.find('[name="name"]')
-    expect(catNewNameInput.length).toEqual(1)
+  it("displays an input for dino name", ()=>{
+    // finds the attribute name in your form and then checks for the key name
+    const dinoNewNameInput = dinoNewRender.find('[name="name"]')
+    expect(dinoNewNameInput.length).toEqual(1)
   })
-  it("displays an input for cat age", ()=>{
-    const catNewAgeInput = catNewRender.find('[name="age"]')
-    expect(catNewAgeInput.length).toEqual(1)
+  it("displays an input for dino age", ()=>{
+    // finds the attribute name in your form and then checks for the key age
+    const dinoNewAgeInput = dinoNewRender.find('[name="age"]')
+    expect(dinoNewAgeInput.length).toEqual(1)
   })
-  it("displays an input for cat enjoys", ()=>{
-    const catNewEnjoysInput = catNewRender.find('[name="enjoys"]')
-    expect(catNewEnjoysInput.length).toEqual(1)
+  it("displays an input for dino enjoys", ()=>{
+    // finds the attribute name in your form and then checks for the key enjoys
+    const dinoNewEnjoysInput = dinoNewRender.find('[name="enjoys"]')
+    expect(dinoNewEnjoysInput.length).toEqual(1)
   })
-  it("displays an input for cat image", ()=>{
-    const catNewImageInput = catNewRender.find('[name="image"]')
-    expect(catNewImageInput.length).toEqual(1)
+  it("displays an input for dino image", ()=>{
+    // finds the attribute name in your form and then checks for the key image
+    const dinoNewImageInput = dinoNewRender.find('[name="image"]')
+    expect(dinoNewImageInput.length).toEqual(1)
   })      
 })

@@ -59,13 +59,94 @@ trello: https://trello.com/b/57eYcQWj/cat-tinder-sphynx
     - Style NotFound page
     - Style Footer component 
 
+# CREATE FUNCTIONALITY
+
+1) Create DinoNew tests
+    #--> make DinoNew.test.js file 
+    #--> test render to display heading and form, also input for name, age, enjoys, and image
+
+2) find form you would like to use on https://reactstrap.github.io/.
+    #--> click forms tab 
+    #--> Once you found the one you like press "show code" on the bottom right corner of example and copy into your New.js component.
+    #--> customize to you liking
+    #--> ** make sure to import react strap at the top of your New.js component. This will include all off the tags that you used. EX: import { Form, FormGroup, Label, Input, Button } from 'reactstrap'. 
+        #-->!! If form test says that FORM is UNDEFINED, this means you forgot to import the react strap
+
+3) Create a CONSTRUCTOR method that allows you to ** STORE ** data entered into your form in your New.js file.
+    EX: 
+    // Constructor method helps use store the inputs/data
+  constructor(props){
+    super(props)
+    this.state = {
+      // create the object that will store your data. include all the keys that you have need in your data base.
+      // you can then reference this object by using this.state.newDino
+      newDino: {
+        name: "",
+        age: "",
+        enjoys: "",
+        image: ""
+      },
+      submitted: false
+    }
+  }
+
+4) Create a METHOD that will ** COLLECT ** your data being enter into your form and create your object. 
+    EX: handleChange() {
+    #--> place in between your class and render 
+    #--> add event listener into your form in each input section which is the data we want to store such as name, age, enjoys and image. This will trigger your handleChange method, sending the event 'e' to the method.    
+        EX: onChange={this.handleChange}
+    #--> console.log the "event.target.name" which shows the key: name and then the "event.target.value" showing the value entered into the form under "name" to check and make sure that the data entered is being collected
+    #--> use destructuring to create a variable to reference the object that is going to store the values 
+    EX: let { newDino } = this.state
+    #--> then reference the objects keys and change there values to the ones that the user inputs 
+    EX: newDino[e.target.name] = e.target.value
+    #--> save the user key value pairs making a new dino using this.setState 
+    EX: this.setState({newDino: newDino})
+ }
+
+5) create method in the parent component App.js that allows "newDino.js" the child component to ACCESS THE PARENT and tell it to create an object, sending its data upriver.
+EX:
+
+  createDino = (newDino) => {
+    console.log("Dino has been created", newDino)
+  }
+
+#--> in order for the child, NewDino.js, to be able to see that method "createDino" in App.js you must add a RENDER attribute to the DINONEW ROUTE. 
+EX: 
+        <Route 
+        path="/dinonew" 
+        render={(props) => <DinoNew createDino={this.createDino}/>} 
+        />
+
+
+6) create a custom method to take the object created in the child component "newDino" and SEND DATA UPRIVER to App.js
+EX: handleSubmit = () => {
+    // reference the method createDino in App.js which is the parent using props to access its information "this.props.createDino". then pass it the argument of "this.state.newDino" to pass the data entered by the user to App.js the parent.
+
+    this.props.createDino(this.state.newDino)
+
+    this.setState({submitted: true})
+  }
+
+7) add an onClick to TRIGGER THE BUTTON allowing it to use the handleSubmit method in DinoNew.js file.
+Ex: <Button onClick={this.handleSubmit} name='submit'> 
+
+8) add a REDIRECT ACTION underneath button in DinoNew.js to redirect user to the INDEX page allowing them to see their created dino along with all the others. also add this.state.submitted to change the status of false to true
+EX: 
+    {this.state.submitted && <Redirect to="/dinoindex"/>}
+
+#--> DONT FORGET: to import the redirect at the top of the new.js component! 
+EX: 
+    
+    import { Redirect } from 'react-router-dom'
+
+IMPORTANT INFO! (this will not show your created dino in the index until you connect your rails app to react using fetch but should redirect you to the index page)!
 
 
 
 
-
-
-
+## create functionality blockers
+    could not get new object to show when redirected to index.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
