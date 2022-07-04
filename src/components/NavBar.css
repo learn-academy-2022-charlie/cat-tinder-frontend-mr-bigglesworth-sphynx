@@ -1,0 +1,18 @@
+
+
+.navbar.fixed { 
+    background-color: beige;
+    transition: .3s ease-in-out;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+ul {
+    display: inline;
+}
+Link {
+    color: #068c0a;
+}
