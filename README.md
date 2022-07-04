@@ -142,13 +142,109 @@ EX:
 
 IMPORTANT INFO! (this will not show your created dino in the index until you connect your rails app to react using fetch but should redirect you to the index page)!
 
-
-
-
 ## create functionality blockers
     could not get new object to show when redirected to index.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+# FETCH - is a request that returns a promise from the data base. can GET and SEND data
+// a promise is a javascript object
+    // 3 different states of a promise 
+      // pending -- fulfilled -- rejected
+        // fulfilled will give return to us a payload
+  
+ 1) create your readDino method that will be triggered 
+  // .Then is another promise, handles our response we get from the fetch
+    // we want .Then to give a response
+      // we expect a response code back as a payload (hopefully: "200")  
+        // we want it to parse the payload into JSON which gives us back an array of all the objects in the database.
+  // If we get a 200 "fulfilled" back as our response, the 2nd .Then, will take that payload (dinosArray) and update the state of our empty dinos array. 
+  // If we get a "rejected" response, .catch will take the argument of errors, then console.log the errors that are response gave us.
+    // if no errors the catch will not log anything
+
+        readDino = () => {
+            fetch("http://localhost:3000/dinos")
+            .then(response => response.json())
+            .then(dinosArray => this.setState({dinos: dinosArray}))
+            .catch(errors => console.log("Dino read errors:", errors))
+        }
+
+2) componentDidMount is a built in method in react takes other methods as arguments
+    // fires off readDino() whenever someone visits our site, called the trigger, and automatically sends off the readDino fetch request.
+
+    componentDidMount(){
+        this.readDino()
+    }
+
+3) the CREATE fetch takes 2 arguments. arg 1 is a string as the URL, arg 2 is an object.
+    // the object has three keys Body, Headers, and Method
+      // Body is the payload of data that we want to send to our database
+        // we want to send our data style as JSON.stringify because that is the style our database is expecting.
+      // Headers specifies that the info is being sent in JSON and the info returning should be JSON
+      // Methods tells the other application what to do with this data. in this case we want it to POST it to the data base. So, it specifies the HTTP verb so the correct endpoint is invoked on the server
+  // we .then want are response in JSON
+  // .then we want to take that payload and update readDino's data with our newly created dino
+  // .catch any errors that we get
+
+        createDino = (newDino) => {
+            fetch("http://localhost:3000/dinos", {
+
+            body: JSON.stringify(newDino),
+            
+            headers: {
+                "Content-Type": "application/json"
+            },
+            
+            method: "POST"
+            })
+            .then(response => response.json())
+            .then(payload => this.readDino())
+            .catch(errors => console.log("Dino create errors:", errors))
+        }
+
+// create you route that will render the createDino method
+        <Route 
+        path="/dinonew" 
+        render={(props) => <DinoNew createDino={this.createDino}/>} 
+        />
+
+3) update fetch method takes two arguments the dino object and its id
+  // fetch will take two arguments, the url that includes the id using string interpulation, and  a object same as create but changing the method to PATCH.
+  // .then turn our response into JSON, update our readDino, and catch any errors
+
+    updateDino = (dino, id) => {
+        fetch(`http://localhost:3000/dinos/${id}`, {
+        // converting an object to a string
+        body: JSON.stringify(dino),
+        // specify the info being sent in JSON and the info returning should be JSON
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // HTTP verb so the correct endpoint is invoked on the server
+        method: "PATCH"
+        })
+        .then(response => response.json())
+        .then(payload => this.readDino())
+        .catch(errors => console.log("Dino update errors:", errors))
+    }
+
+4)      
+        
+        deleteDino = (id) => {
+        fetch(`http://localhost:3000/dinos/${id}`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "DELETE"
+        })
+        .then(response => response.json())
+        .then(payload => this.readDino())
+        .catch(errors => console.log("delete errors:", errors))
+    }
+
+
+
 
 ## Available Scripts
 
