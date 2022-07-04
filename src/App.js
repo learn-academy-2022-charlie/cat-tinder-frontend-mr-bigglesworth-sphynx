@@ -70,7 +70,7 @@ class App extends Component {
         render= {(props)=>{
             let id = props.match.params.id
             let dino = this.state.dinos.find((dinoObject)=> dinoObject.id == id)
-            return <DinoShow dino={dino} deleteDino={this.deleteDino}/>
+            return <DinoShow dino={dino} />
           }} />
         <Route 
         path="/dinonew" 

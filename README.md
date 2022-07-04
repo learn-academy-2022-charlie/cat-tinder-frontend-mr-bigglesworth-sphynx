@@ -243,6 +243,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
         .catch(errors => console.log("delete errors:", errors))
     }
 
+    <Route path="/dinoshow/:id" 
+        render= {(props)=>{
+            let id = props.match.params.id
+            let dino = this.state.dinos.find((dinoObject)=> dinoObject.id == id)
+            return <DinoShow dino={dino} **** deleteDino={this.deleteDino}**** />
+          }} />
+
 
 
 
