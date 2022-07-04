@@ -2,5 +2,7 @@ header{
     color: green;
     display: flex;
     justify-content: center;
-    background-color: aquamarine;
+    background-color: beige;
+    height: 150px;
 }
+
