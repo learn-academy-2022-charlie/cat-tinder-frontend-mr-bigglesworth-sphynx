@@ -58,9 +58,11 @@ class App extends Component {
   render() {
     console.log(this.state.dinos)
     return (
+     <>
      
       <Router>
-        <Header />
+      <Header />
+      <div className='wholepage'>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/dinoindex" 
@@ -84,9 +86,10 @@ class App extends Component {
           }} />
         <Route component={NotFound}/>
       </Switch>
+      </div>
       <Footer/>
     </Router>
-   
+   </>
     )
   }
 }

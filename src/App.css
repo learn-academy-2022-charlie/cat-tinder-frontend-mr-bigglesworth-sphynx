@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+ 
 }
 
 .App-logo {
@@ -38,3 +39,18 @@
 
 
 }
+
+/* .app-background {background-image: 
+url(./assets/DinoLinkbackground.png);
+
+background-repeat:no-repeat; 
+height: auto;
+width: 100%;
+} */
+
+/* .wholepage { */
+  /* background-image: 
+  url(./assets/DinoLinkbackground.png);
+  background-repeat:no-repeat; 
+} */
+
